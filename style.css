@@ -1,0 +1,89 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  min-height: 100dvh;
+  background-color: black;
+  perspective: 400px;
+  overflow: hidden;
+}
+
+.floor {
+  width: 500%;
+  height: 300dvh;
+  position: fixed;
+  bottom: -150dvh;
+  background-image: url('assets/woolen-texture.avif');
+  transform: rotateX(80deg);
+}
+
+.container-mira {
+  position: absolute;
+  left: 50%;
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  .lip-top,
+  .lip-bottom {
+    width: 8px;
+    height: 28px;
+    background-color: beige;
+  }
+
+  .lip-center {
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    border: 8px solid beige;
+    translate: -15px -4px;
+  }
+
+  .lip-bottom {
+    translate: 1px -8px;
+  }
+
+  .container-circle {
+    translate: -147px -13px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: beige;
+    position: relative;
+
+    .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: inherit;
+      animation: grow 10s linear alternate infinite;
+      animation-delay: calc(var(--d) * 1s);
+    }
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+    box-shadow: 0 0 20px #0008;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    box-shadow: 0 0 50px #0008;
+  }
+}
